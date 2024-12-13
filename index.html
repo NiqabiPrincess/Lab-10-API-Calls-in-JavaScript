@@ -4,22 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-
-    <h1>Lab 10: API Calls in JavaScript</h1>
+    <header>
+        <h1>Lab 10: API Calls in JavaScript</h1>
+    </header>
+    
 
     <br><br>
-    <button id="fetch">Fetch Data with fetch()</button>
-    <button id="xhr">Fetch Data with XHR</button>
+    <section id = "buttons">
+        <button id="fetch">Fetch Data with fetch()</button>
+        <button id="xhr">Fetch Data with XHR</button>
+    </section>
+    
     <br><br><br>
 
-    <h2>Fetch()</h2>
-    <section id = "fetchSection"></section>
+    <section id = "display">
+        <h2>Fetched Data</h2>
+        <br>
+        
+    </section>
 
-        <h2>XHR</h2>
-        <section id = "xhrSection"></section>
-       
-    </table>
+    <br><br><br>
+
+    <section id="form-section">
+        <h2>Send Data</h2>
+        <form id="data-form">
+            <label for="key">Key:</label>
+            <input type="text" id="key" name="key" required>
+            <br><br>
+            <label for="value">Value:</label>
+            <input type="text" id="value" name="value" required>
+            <br><br>
+            <button type="button" id="post-data">Send with POST</button>
+            <button type="button" id="put-data">Send with PUT</button>
+        </form>
+    </section>
+    
+    
+
+
 </body>
 </html>

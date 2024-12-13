@@ -24,7 +24,7 @@
     <section id = "display">
         <h2>Fetched Data</h2>
         <br>
-        
+
     </section>
 
     <br><br><br>
@@ -32,11 +32,14 @@
     <section id="form-section">
         <h2>Send Data</h2>
         <form id="data-form">
-            <label for="key">Key:</label>
-            <input type="text" id="key" name="key" required>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
             <br><br>
-            <label for="value">Value:</label>
-            <input type="text" id="value" name="value" required>
+            <label for="body">Body:</label>
+            <input type="text" id="body" name="body" required>
+            <br><br>
+            <label for="id">Post ID:</label>
+            <input type="text" id="id" name="id" required>
             <br><br>
             <button type="button" id="post-data">Send with POST</button>
             <button type="button" id="put-data">Send with PUT</button>

@@ -54,7 +54,8 @@ postData.addEventListener('click', () => {
     const formData = new FormData(form);
     const data = {
         title: formData.get('title'),
-        body: formData.get('body')
+        body: formData.get('body'),
+        id: formData.get('id')
     };
 
      //* Fetch POST request
@@ -71,17 +72,18 @@ postData.addEventListener('click', () => {
     })
     .then(data => {
         console.log('Post Created:', data);
+        displayData(data);
     })
     .catch(error => {
         console.error('Error creating post:', error);
     });
 });
 
-//* fetch Put request
+//* fetch Put request, updating a post
 putData.addEventListener('click', () => {
     // Get form data
     const formData = new FormData(form);
-    const postId = formData.get('id'); // Post ID to update
+    const postId = formData.get('id'); 
     const data = {
         title: formData.get('title'),
         body: formData.get('body'),

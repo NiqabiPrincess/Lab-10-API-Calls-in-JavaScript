@@ -1,7 +1,7 @@
 //* Getting elements from html
 const fetchData = document.getElementById('fetch');
 const xhrData = document.getElementById('xhr');
-const postDat = document.getElementById('post');
+const postData = document.getElementById('post');
 const putData = document.getElementById('put');
 
 const titleDisplay = document.getElementById('postTitle');
@@ -22,7 +22,10 @@ fetchData.addEventListener('click', () => {
         console.log(data);
         displayData(data);
     })
-    .catch(error => console.error('Error fetching data:', error));
+    .catch(error => {
+        console.error('Error fetching data:', error);
+        alert('Failed to create a post.');
+    });
 });
 
 //* XHR API section
@@ -38,12 +41,42 @@ xhrData.addEventListener('click', () => {
                 displayData(data);
             } else {
                 console.error('Error fetching data:', xhr.statusText);
+                alert('Failed to create a post.');
             }
         }
     };
 
     xhr.send();
 });
+
+//* Post request, sending a new post
+postData.addEventListener('click', () => {
+    const formData = new FormData(form);
+    const data = {
+        title: formData.get('title'),
+        body: formData.get('body')
+    };
+
+     //* Fetch POST request
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('...There was an Error in Sending Data. Check Your NetWork...');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Post Created:', data);
+    })
+    .catch(error => {
+        console.error('Error creating post:', error);
+    });
+});
+
 
 
 
@@ -52,6 +85,4 @@ xhrData.addEventListener('click', () => {
 function displayData(data) {
     titleDisplay.textContent = `Title: ${data.title}`;
     bodyDisplay.textContent = `Body: ${data.body}`;
-
-
 }

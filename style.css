@@ -5,7 +5,7 @@ body{
 }
 
 header{
-    background-color: antiquewhite;
+    background-color: rgb(246, 215, 250);
     padding: 10px;
 }
 
@@ -42,4 +42,19 @@ button:hover{
     color: antiquewhite;
     margin: 3px;
 
+}
+
+form {
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(231, 176, 187);
+    border: 3px solid;
+    border-color: rgb(48, 28, 49);
+    
+}
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
 }

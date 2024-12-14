@@ -77,7 +77,36 @@ postData.addEventListener('click', () => {
     });
 });
 
+//* fetch Put request
+putData.addEventListener('click', () => {
+    // Get form data
+    const formData = new FormData(form);
+    const postId = formData.get('id'); // Post ID to update
+    const data = {
+        title: formData.get('title'),
+        body: formData.get('body'),
+    };
 
+    //* Fetch PUT request
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('...There was an Error in Updating Data. Check Your NetWork...');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Post Updated:', data);
+        displayData(data);
+    })
+    .catch(error => {
+        console.error('Error updating post:', error);
+    });
+});
 
 
 
